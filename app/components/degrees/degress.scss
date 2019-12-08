@@ -1,0 +1,30 @@
+@import '../../common/styles/variables.scss';
+
+#degrees {
+    text-align: center;
+
+    .temperature {
+        font-size: 70px;
+        font-weight: bold;
+
+        .in {
+            position: absolute;
+            font-size: 50px;
+            margin-top: 10px;
+            margin-left: 2px;
+            font-weight: normal;
+        }
+    }
+
+    .blue-info {
+        color: $blue-color;
+    }
+    
+    .orange-info {
+        color: $orange-color;
+    }
+
+    .red-info {
+        color: $red-color;
+    }
+}

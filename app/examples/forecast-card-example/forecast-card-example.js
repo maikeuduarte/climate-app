@@ -2,6 +2,6 @@
   'use strict';
 
   angular.module('climateApp').controller('ForecastCardExampleController', function ($scope) {
-    $scope.degreesInfo = 31;
+    $scope.cityName = "Urubici, BR";
   });
 })(window.angular);

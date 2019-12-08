@@ -1,3 +1,20 @@
 <div id="forecast-card">
-        forecast
+    <div class="header-card">{{ $ctrl.cityName }} </div>
+    <div class="body-card">
+        <degrees temperature="25"></degrees>
+    </div>
+    <div class="footer-card">
+        <div class="row">
+            <div class="col">
+                <p class="label">Humidity</p>
+                <p class="info">75<span class="symbol">%</span></p>
+            </div>
+            <div class="col">
+                <p class="label">Pressure</p>
+                <p class="info">892<span class="symbol">hPa</span></p>
+            </div>
+            <br class="clearfix">
+        </div>
+        <div class="updated">Updated at 02:48 PM</div>
+    </div>
 </div>

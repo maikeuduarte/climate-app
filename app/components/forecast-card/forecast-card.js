@@ -5,6 +5,8 @@
 
   module.component('forecastCard', {
     bindings: {
+      cityName:'<',
+      degreesInfo: '<'
     },
     templateUrl: 'components/forecast-card/forecast-card.html',
     controller: ForecastCardController

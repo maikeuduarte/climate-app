@@ -1,5 +1,65 @@
-@import '../../common/styles/variables.scss';
+@import "../../common/styles/variables.scss";
 
 #forecast-card {
-    font-size: 35px;
+  width: 250px;
+  font-size: 35px;
+  margin: 0 auto;
+  margin-top: 50px;
+  -webkit-box-shadow: 2px 2px 10px 2px $box-shadow-color;
+  box-shadow: 2px 2px 10px 2px $box-shadow-color;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .header-card {
+    color: $dark-grey-color;
+    padding: 8px 5px;
+    font-size: 20px;
+    border-bottom: 2px inset $divider-color;
+    text-align: center;
+  }
+
+  .body-card {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+  }
+
+  .footer-card {
+    background-color: $light-gray-color;
+    padding: 15px 10px;
+    min-height: 30px;
+
+    .row {
+      .col {
+        float: left;
+        width: 50%;
+        text-align: center;
+
+        .info {
+          font-size: 20px;
+          color: $grey-color;
+
+          .symbol {
+            font-size: 14px;
+          }
+        }
+
+        .label {
+          font-size: 12px;
+          text-transform: uppercase;
+          color: $grey-color;
+        }
+      }
+    }
+
+    .updated {
+      padding-top: 8px;
+      font-size: 11px;
+      color: $grey-color;
+      text-align: center;
+    }
+  }
 }

@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['components/**/{,*/}*_test.js', 'common/**/{,*/}*_test.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       compass: {
@@ -131,9 +131,9 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          jshintrc: 'test/.jshintrc'
+          jshintrc: '.jshintrc'
         },
-        src: ['test/spec/{,*/}*.js']
+        src: ['<%= yeoman.app %>/components/**/{,*/}*_test.js', '<%= yeoman.app %>/common/**/{,*/}*_test.js']
       }
     },
 
@@ -150,7 +150,7 @@ module.exports = function (grunt) {
         ]
       },
       test: {
-        src: ['test/spec/{,*/}*.js']
+        src: ['<%= yeoman.app %>/components/**/{,*/}*_test.js', '<%= yeoman.app %>/common/**/{,*/}*_test.js']
       }
     },
 
@@ -440,7 +440,7 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'test/karma.conf.js',
+        configFile: 'karma.conf.js',
         singleRun: true
       }
     }

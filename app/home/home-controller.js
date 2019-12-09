@@ -1,23 +1,23 @@
 (function (angular) {
-    'use strict';
+  'use strict';
 
-    angular.module('climateApp').controller('HomeController', function ($scope, OpenWeatherService) {
-        $scope.cityInformation = [{
-            name: 'Nuuk, GL',
-            id: 3421319,
-            isPrincipal: false
-        }, {
-            name: 'Urubici, BR',
-            id: 3445709,
-            isPrincipal: true
-        }, {
-            name: 'Nairobi, KE',
-            id: 184745,
-            isPrincipal: false
-        }];
+  angular.module('climateApp').controller('HomeController', function ($scope, OpenWeatherService) {
+    $scope.cityInformation = [{
+      name: 'Nuuk, GL',
+      id: 3421319,
+      isPrincipal: false
+    }, {
+      name: 'Urubici, BR',
+      id: 3445709,
+      isPrincipal: true
+    }, {
+      name: 'Nairobi, KE',
+      id: 184745,
+      isPrincipal: false
+    }];
 
-        $scope.onLoadForecast = function (cityId) {
-            return OpenWeatherService.getCity(cityId).$promise;
-        };
-    });
+    $scope.onLoadForecast = function (cityId) {
+      return OpenWeatherService.getCity(cityId);
+    };
+  });
 })(window.angular);

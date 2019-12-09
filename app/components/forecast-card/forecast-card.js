@@ -49,11 +49,11 @@
         .catch(setShowTryAgain.bind(this));
     }
 
-    function setForecastCard(data){
+    function setForecastCard(data) {
       this.forecastCard.degrees = data.main.temp;
       this.forecastCard.humidity = data.main.humidity;
       this.forecastCard.pressure = data.main.pressure;
-      this.forecastCard.updated = new Date().toLocaleTimeString();
+      this.forecastCard.updated = new Date(data.updated).toLocaleTimeString();
     }
 
     function setShowLoading() {
@@ -74,13 +74,13 @@
       this.showTryAgain = true;
     }
 
-    function setTimeForecast(){
-      if(this.enableRefresh){
+    function setTimeForecast() {
+      if (this.enableRefresh) {
         stop = $interval(load.bind(this), 600000);
       }
     }
 
-    $scope.$on('$destroy', function() {
+    $scope.$on('$destroy', function () {
       $interval.cancel(stop);
     });
   }

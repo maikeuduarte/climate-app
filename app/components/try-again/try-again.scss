@@ -1,0 +1,26 @@
+@import "../../common/styles/variables.scss";
+
+#try-again {
+  text-align: center;
+
+  .message-error {
+    font-size: 18px;
+    color: $red-color;
+  }
+
+  button {
+    outline: none;
+    margin-top: 15px;
+    color: $dark-grey-color;
+    border-radius: 30px;
+    border: 2px solid $dark-grey-color;
+    padding: 10px 20px;
+    background-color: $white-color;
+    font-size: 16px;
+
+    &:hover {
+        border-color: $grey-color;
+        cursor: pointer;
+    }
+  }
+}

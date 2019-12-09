@@ -1,20 +1,24 @@
 <div id="forecast-card">
-    <div class="header-card">{{ $ctrl.cityName }} </div>
+    <div class="header-card">{{ $ctrl.cityInformation.name }} </div>
     <div class="body-card">
-        <degrees temperature="25"></degrees>
+        <p ng-if="$ctrl.showLoading" class="loading"></p>
+
+        <degrees ng-if="$ctrl.showDegrees" temperature="$ctrl.forecastCard.degrees"></degrees>
+
+        <try-again ng-if="$ctrl.showTryAgain" on-try-again="$ctrl.onTryAgain()"></try-again>
     </div>
-    <div class="footer-card">
-        <div class="row">
+    <div class="footer-card" ng-if="$ctrl.showDegrees">
+        <div class="row" ng-if="$ctrl.cityInformation.isPrincipal">
             <div class="col">
                 <p class="label">Humidity</p>
-                <p class="info">75<span class="symbol">%</span></p>
+                <p class="info">{{ $ctrl.forecastCard.humidity }}<span class="symbol">%</span></p>
             </div>
             <div class="col">
                 <p class="label">Pressure</p>
-                <p class="info">892<span class="symbol">hPa</span></p>
+                <p class="info">{{ $ctrl.forecastCard.pressure }}<span class="symbol">hPa</span></p>
             </div>
             <br class="clearfix">
         </div>
-        <div class="updated">Updated at 02:48 PM</div>
+        <div class="updated">Updated at {{ $ctrl.forecastCard.updated }} PM</div>
     </div>
 </div>

@@ -15,10 +15,11 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="common/styles/app.css">
 
+    <!-- style components -->
     <link rel="stylesheet" href="components/degrees/degress.css">
     <link rel="stylesheet" href="components/forecast-card/forecast-card.css">
+    <link rel="stylesheet" href="components/try-again/try-again.css">
 
-    <!-- style components -->
     <link rel="stylesheet" href="home/home.css">
     <!-- endbuild -->
   </head>
@@ -45,9 +46,13 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="app.js"></script>
         
+        <!-- Common -->
+        <script src="common/services/open-weather-service.js"></script>
+
         <!-- Components -->
         <script src="components/degrees/degrees.js"></script>
         <script src="components/forecast-card/forecast-card.js"></script>
+        <script src="components/try-again/try-again.js"></script>
         
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
@@ -55,10 +60,10 @@
         <script src="home/home-controller.js"></script>
         <!-- endbuild -->
 
-
         <!-- initExamples -->
         <script src="examples/degrees-example/degrees-example.js"></script>
         <script src="examples/forecast-card-example/forecast-card-example.js"></script>
+        <script src="examples/try-again-example/try-again-example.js"></script>
         <!-- endExamples -->
 </body>
 </html>

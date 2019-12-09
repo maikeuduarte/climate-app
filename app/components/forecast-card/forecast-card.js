@@ -6,19 +6,24 @@
   module.component('forecastCard', {
     bindings: {
       cityInformation: '<',
-      onLoadForecast: '&'
+      onLoadForecast: '&',
+      enableRefresh: '<?'
     },
     templateUrl: 'components/forecast-card/forecast-card.html',
     controller: ForecastCardController
   });
 
-  ForecastCardController.$inject = [];
+  ForecastCardController.$inject = ['$scope', '$interval'];
 
-  function ForecastCardController() {
+  function ForecastCardController($scope, $interval) {
+    var stop = null;
+
     this.$onInit = function () {
       this.showLoading = false;
       this.showDegrees = false;
       this.showTryAgain = false;
+      this.enableRefresh = this.enableRefresh || false;
+
       this.forecastCard = {
         degrees: null,
         humidity: null,
@@ -40,6 +45,7 @@
       this.onLoadForecast({ cityId: this.cityInformation.id })
         .then(setForecastCard.bind(this))
         .then(setShowDegrees.bind(this))
+        .then(setTimeForecast.bind(this))
         .catch(setShowTryAgain.bind(this));
     }
 
@@ -67,5 +73,15 @@
       this.showDegrees = false;
       this.showTryAgain = true;
     }
+
+    function setTimeForecast(){
+      if(this.enableRefresh){
+        stop = $interval(load.bind(this), 600000);
+      }
+    }
+
+    $scope.$on('$destroy', function() {
+      $interval.cancel(stop);
+    });
   }
 })();

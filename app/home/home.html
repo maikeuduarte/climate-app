@@ -1,5 +1,11 @@
 <div id="home">
-    Home
-    <br>
-    <degrees></degrees>
+    <header>
+        <img src="common/images/logo.svg" alt="MDN logo">
+    </header>
+    <main>
+        <div class="container">
+            <forecast-card ng-repeat="city in cityInformation" ng-class="{'card-principal': city.isPrincipal}" city-information="city" on-load-forecast="onLoadForecast(cityId)" enable-refresh="true">
+            </forecast-card>
+        </div>
+    </main>
 </div>

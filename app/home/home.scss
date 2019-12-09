@@ -1,7 +1,57 @@
-@import '../common/styles/variables.scss';
+@import "../common/styles/variables.scss";
 
 // bower:scss
 // endbower
 #home {
-  background-color: $light-gray-color;
+  width: 100%;
+  height: 100%;
+  background-color: $white-color;
+
+  header {
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    text-align: center;
+    background-color: $white-color;
+    border-bottom: 2px inset $divider-color;
+
+    img {
+      width: 160px;
+    }
+  }
+
+  main {
+    width: 100%;
+    min-height: 900px; // Para criar barra de rolagem e exibir que o header está fixo;
+    background-color: $light-gray-color;
+    padding-top: 150px;
+
+    .container {
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: row wrap;
+
+      forecast-card {
+        order: 2;
+        padding-bottom: 20px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #home {
+    main {
+      .container {
+        flex-flow: column wrap;
+
+        forecast-card.card-principal {
+          order: 1;
+        }
+      }
+    }
+  }
 }

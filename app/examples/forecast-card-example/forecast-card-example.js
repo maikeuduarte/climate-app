@@ -20,6 +20,6 @@
       console.log('search cityId:' + cityId);
 
       return OpenWeatherService.get({ id: cityId }).$promise;
-    }
+    };
   });
 })(window.angular);

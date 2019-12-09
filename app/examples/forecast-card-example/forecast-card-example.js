@@ -19,7 +19,7 @@
     $scope.onLoadForecast = function (cityId) {
       console.log('search cityId:' + cityId);
 
-      return OpenWeatherService.get({ id: cityId }).$promise;
+      return OpenWeatherService.getCity(cityId).$promise;
     };
   });
 })(window.angular);

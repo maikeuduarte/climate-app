@@ -1,7 +1,13 @@
 <div>
-  <forecast-card city-name="cityName"></forecast-card>
+  <forecast-card city-information="cityInformation[0]" on-load-forecast="onLoadForecast(cityId)"></forecast-card>
+  <forecast-card city-information="cityInformation[1]" on-load-forecast="onLoadForecast(cityId)"></forecast-card>
+  <forecast-card city-information="cityInformation[2]" on-load-forecast="onLoadForecast(cityId)"></forecast-card>
 </div>
 
-<label>City Name</label><br />
-<input type="text" ng-model="cityName" />
 
+<br />
+<br />
+<br />
+<pre>
+   {{cityInformation | json:2}}
+</pre>

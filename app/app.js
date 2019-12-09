@@ -10,9 +10,11 @@
  */
 angular
   .module('climateApp', [
+    'ngResource',
     'ui.router',
     'climateApp.component.degrees',
-    'climateApp.component.forecastCard'
+    'climateApp.component.forecastCard',
+    'climateApp.component.tryAgain'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -41,6 +43,13 @@ angular
       url: '/forecast-card-example',
       templateUrl: 'examples/forecast-card-example/forecast-card-example.html',
       controller: 'ForecastCardExampleController',
+      controllerAs: '$ctrl'
+    });
+
+    $stateProvider.state('try-again-example', {
+      url: '/try-again-example',
+      templateUrl: 'examples/try-again-example/try-again-example.html',
+      controller: 'TryAgainExampleController',
       controllerAs: '$ctrl'
     });
 

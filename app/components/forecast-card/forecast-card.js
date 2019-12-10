@@ -13,11 +13,9 @@
     controller: ForecastCardController
   });
 
-  ForecastCardController.$inject = ['$scope', '$interval'];
+  ForecastCardController.$inject = ['$timeout'];
 
-  function ForecastCardController($scope, $interval) {
-    var stop = null;
-
+  function ForecastCardController($timeout) {
     this.$onInit = function () {
       this.showLoading = false;
       this.showDegrees = false;
@@ -28,18 +26,18 @@
         degrees: null,
         humidity: null,
         pressure: null,
-        updated: null
+        updated: null,
+        expireCache: null
       };
 
-      load.call(this);
+      this.load.call(this);
     };
 
     this.onTryAgain = function () {
-      load.call(this);
+      this.load.call(this);
     }
 
-    // Private methods
-    function load() {
+    this.load = function load() {
       setShowLoading.call(this);
 
       this.onLoadForecast({ cityId: this.cityInformation.id })
@@ -47,13 +45,15 @@
         .then(setShowDegrees.bind(this))
         .then(setTimeForecast.bind(this))
         .catch(setShowTryAgain.bind(this));
-    }
+    };
 
+    // Private methods
     function setForecastCard(data) {
       this.forecastCard.degrees = data.main.temp;
       this.forecastCard.humidity = data.main.humidity;
       this.forecastCard.pressure = data.main.pressure;
-      this.forecastCard.updated = new Date(data.updated).toLocaleTimeString();
+      this.forecastCard.updated = formatAMPM(new Date(data.updated));
+      this.forecastCard.expireCache = data.expireCache;
     }
 
     function setShowLoading() {
@@ -76,12 +76,23 @@
 
     function setTimeForecast() {
       if (this.enableRefresh) {
-        stop = $interval(load.bind(this), 600000);
+        var timeout = new Date(this.forecastCard.expireCache) - new Date();
+        $timeout(this.load.bind(this), timeout > 0 ? timeout : 0);
       }
     }
 
-    $scope.$on('$destroy', function () {
-      $interval.cancel(stop);
-    });
+    function formatAMPM(date) {
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+      return strTime;
+    }
   }
 })();

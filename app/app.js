@@ -16,11 +16,11 @@ angular
     'climateApp.component.forecastCard',
     'climateApp.component.tryAgain'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $provide) {
 
     $stateProvider.state('index', {
       url: '/',
-      templateUrl: 'views/main.html',
+      templateUrl: 'examples/main/main.html',
       controller: 'MainCtrl',
       controllerAs: 'main'
     });
@@ -55,5 +55,7 @@ angular
 
     $urlRouterProvider.otherwise('/');
 
-
+    $provide.constant('ClimateConstant', {
+      TIME_OF_CACHE: 10
+    });
   });

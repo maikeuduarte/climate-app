@@ -17,8 +17,6 @@
     }];
 
     $scope.onLoadForecast = function (cityId) {
-      console.log('search cityId:' + cityId);
-
       return OpenWeatherService.getCity(cityId);
     };
   });

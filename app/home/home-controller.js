@@ -1,8 +1,8 @@
 (function (angular) {
   'use strict';
 
-  angular.module('climateApp').controller('HomeController', function ($scope, OpenWeatherService) {
-    $scope.cityInformation = [{
+  angular.module('climateApp').controller('HomeController', function (OpenWeatherService) {
+    this.cityInformation = [{
       name: 'Nuuk, GL',
       id: 3421319,
       isPrincipal: false
@@ -16,7 +16,7 @@
       isPrincipal: false
     }];
 
-    $scope.onLoadForecast = function (cityId) {
+    this.onLoadForecast = function (cityId) {
       return OpenWeatherService.getCity(cityId);
     };
   });

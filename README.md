@@ -1,5 +1,4 @@
 # Climate App
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular) version 0.16.0.
 The app consumes the API **api.openweathermap.org**.
 
 ## Step configuration
@@ -84,3 +83,10 @@ $scope.onLoadForecast = function (cityId) {
     console.log('get city by id:'+ cityId);
 };
 ```
+
+#### Screen Application
+![Climate App](climate-app.PNG)
+
+#### Some questions? contact me.
+##### maikeuduarte@gmail.com
+

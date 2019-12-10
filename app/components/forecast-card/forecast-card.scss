@@ -4,8 +4,8 @@
   width: 250px;
   font-size: 35px;
   margin: 0 auto;
-  -webkit-box-shadow: 2px 2px 10px 2px $box-shadow-color;
-  box-shadow: 2px 2px 10px 2px $box-shadow-color;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(3, 3, 3, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(3, 3, 3, 0.1);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -31,7 +31,7 @@
       margin: 0 auto;
       width: 50px;
       height: 50px;
-      background: url('../../common/images/loader.svg') top left no-repeat;
+      background: url("../../common/images/loader.svg") top left no-repeat;
     }
   }
 
